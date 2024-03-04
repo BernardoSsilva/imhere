@@ -16,6 +16,9 @@ export function Home() {
   const [participantName, setParticipantName] = useState("");
   const [participants, setParticipants] = useState<string[]>([]);
   async function handleRegisterNewEventParticipant(newParticipantName: string) {
+    if(participants.includes(newParticipantName)){
+      Alert.alert("Erro", "Nome ja registrado em nossa lista")
+    }
     if (newParticipantName.length <= 0) {
       Alert.alert(
         "Erro",
